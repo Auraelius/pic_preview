@@ -1,0 +1,31 @@
+<h1> Example Form</h1>
+
+<p> Enter anything in this form and click the 
+send button to see the field names and values 
+echoed to your browser. Look at this page source 
+to see where to POST your form to echo its contents.</p>
+
+<!-- 
+this form used HTML5 validation. 
+See https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation 
+-->
+
+<form action= "/form-echo", method = "post">
+  <fieldset>
+    <ol>
+      <li>
+        <label for = "name"> Name: </label><br />
+        <input type = "text", name ="name"></input>
+        </li>
+      <li>
+        <label for = "mail"> Email: </label><br />
+        <input type = "email", name ="mail"></input>
+      <li>
+        <label for = "body"> Message: </label><br />
+        <textarea name = "body"></textarea>
+        </li>
+        </ol>
+    <input class="button" type = "submit", value = "Send"></input>
+  </fieldset>
+
+</form>

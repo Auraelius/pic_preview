@@ -1,0 +1,19 @@
+<h1> Form fields from the params hash:</h1>
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+  </tr>
+  <% params.each do |key,value| %>
+    <tr>
+      <td style ="text-align:right; background-color: lightgray;">
+        <%= key.to_s %>
+      </td>
+      <td>
+        <%= value.to_s %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
