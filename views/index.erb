@@ -10,22 +10,31 @@ this form used HTML5 validation.
 See https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation 
 -->
 
-<form action= "/form-echo", method = "post">
+<form action= "/form-echo" enctype= "multipart/form-data" method = "post">
   <fieldset>
     <ol>
       <li>
         <label for = "name"> Name: </label><br />
-        <input type = "text", name ="name"></input>
-        </li>
+        <input type = "text" name ="name"></input>
+      </li>
+      
       <li>
         <label for = "mail"> Email: </label><br />
-        <input type = "email", name ="mail"></input>
+        <input type = "email" name ="mail"></input>
+      </li>
+      
       <li>
         <label for = "body"> Message: </label><br />
         <textarea name = "body"></textarea>
-        </li>
-        </ol>
-    <input class="button" type = "submit", value = "Send"></input>
-  </fieldset>
+      </li>
 
+      <li>
+        <label for = "picture"> File to upload: </label><br />
+        <input type="file" name="files[]" id="files" multiple onchange="handleFiles(this.files)">
+
+      </li>    
+    </ol>
+    <div id="preview"></div>
+    <input class="button" type = "submit" value = "Send"></input>
+  </fieldset>
 </form>

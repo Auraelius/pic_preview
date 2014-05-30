@@ -12,7 +12,15 @@ table {
 }
 
 td { 
-   border: 1px solid black; 
-   padding: 20px;
-   margin: 10px;
+  border: 1px solid black; 
+  padding: 20px;
+  margin: 10px;
 }
+
+.preview_thumbnail {
+  width: auto;
+  height: auto;
+  max-width: 100px;
+  max-height: 100px;
+  margin: 20px;
+  }

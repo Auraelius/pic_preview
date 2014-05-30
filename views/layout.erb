@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Image preview and upload</title>
+  <meta charset="UTF-8">
   <link href="pic_preview.css" rel="stylesheet" type="text/css" media="all">
   <script src="pic_preview.js"></script>
 </head>
@@ -11,6 +12,13 @@
     <%= yield%>
   </div>
 
+  <script>
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+      // alert("File API supported.!");
+    } else {
+      alert("The File APIs are not fully supported in this browser.");
+    }
+  </script>
 
 </body>
 </html>
