@@ -7,22 +7,34 @@ function handleFiles(files) {
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
 
-    // Only create preview thumbnails for images , skip others.
+    // Only create preview thumbnails for images
+    // skip anything that isn't an image type of file
     var imageType = /image.*/;
     if (!file.type.match(imageType)) {
       continue;
     }
 
-    // First, create the img element and append it to the preview area
+    // First, create the img element
     var img = document.createElement("img");
-    img.classList.add("preview_thumbnail");
-    img.file = file;
+    img.classList.add("preview_thumbnail"); // apply styles via a class
+    img.file = file;  // assign attributes
+    // put file details in a pop-up tooltip
     img.title = file.name + " " + file.type +" " + (file.size/1024).toFixed(0) + " kb";
+    
+    // append the image element to the preview area
     preview_area.appendChild(img);
 
     // Next, tell the browser to read the file given in the img tag and render it
+    
+    // make a variable where we can interact with the API
     var reader = new FileReader();
+    
+    // Set up the render callback
+    // This is a "closure" - see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures
+    // it's run when the file finishes loading; it renders the image
     reader.onload = (function(aImg) {return function(e){aImg.src = e.target.result; };})(img);
+   
+    // finally, go get the file (and run the callback when it's loaded)
     reader.readAsDataURL(file);
   }
 }
